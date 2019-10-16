@@ -10,18 +10,21 @@ if(isset($_POST['save']))
     $tgl_lahir = $_POST['tgl_lahir'];
     $jk = $_POST['jk'];
     $agama = $_POST['agama'];
-    $tgl = date ('Y', strtotime($tgl_lahir));
-    $umur = date('Y')-$tgl;
+    $tgl= date('Y', strtotime($tgl_lahir));
+    $umur= date('Y')-$tgl;
+    
 }
 if($aksi == "tambah")
 {
-    $diri->create($nama,$alamat,$tgl_lahir,$jk,$agama,$umur);
+    $diri->create($nama, $alamat, $tgl_lahir, $jk, $agama, $umur);
     header("location:index.php");
-}elseif($aksi == "update")
+}
+elseif($aksi == "update")
 {
-    $diri->update($id,$nama,$alamat,$tgl_lahir,$jk,$agama,$umur);
+    $diri->update($id, $nama, $alamat, $tgl_lahir, $jk, $agama, $umur);
     header("location:index.php");
-}elseif($aksi == "delete")
+}
+elseif($aksi == "delete")
 {
     $diri->delete($_GET['id']);
     header("location:index.php");

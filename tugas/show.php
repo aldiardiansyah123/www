@@ -9,58 +9,61 @@ $diri = new Diri();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Latihan CRUD - Show Data</title>
+    <title>Document</title>
 </head>
 <body>
-    <?php 
+     <?php 
         foreach($diri->show($_GET['id']) as $data)
         {
             $id = $data['id'];
             $nama = $data['nama'];
             $alamat = $data['alamat'];
-            $nama = $_POST['nama'];
-            $alamat = $_POST['alamat'];
-            $tgl_lahir = $_POST['tgl_lahir'];
-            $jk = $_POST['jk'];
-            $agama = $_POST['agama'];
+            $tgl_lahir = $data['tgl_lahir'];
+            $jk = $data['jk'];
+            $agama = $data['agama'];
         }
     ?>
-    <fieldset>
-        <legend>Show Biodata</legend>
-            <table>
-                <tr>
-                    <th>Nama Siswa</th>
-                    <td><input type="text" name="nama" value="<?php echo $nama; ?>" readonly></td>
-                </tr>
-                <tr>
-                    <th>Alamat</th>
-                    <td><textarea name="alamat" cols="40" readonly><?php echo $alamat; ?></textarea></td>
-                </tr>
-                <tr>
-                    <th>Tanggal Lahir</th>
-                    <td><input type="date" name="tgl_lahir" value="<?php echo $tgl_lahir; ?>"readonly></td>
-                </tr>
-                <tr>
-                    <th>Jenis Kelamin</th>
-                    <?php
-                    if ($jk==pria) {?>
-                        <input type="radio" name="jk" value="pria" checked/>Laki-Laki
-                        <input type="radio" name="jk" value="wanita">Perempuan
-                    <?php
-                    }elseif ($jk==wanita) {?>
-                        <input type="radio" name="jk" value="pria">Laki-Laki
-                        <input type="radio" name="jk" value="wanita" checked/>Perempuan
-                    <?php } ?>
-                </tr>
-                <tr>
-                    <th>Agama</th>
-                    <td><select name="agama">  
-                        <option value="">Agama</option><?php echo $jk?>
-                        <option value="Islam">Islam</option><?php echo $jk?>
-                        <option value="Kristen">Kristen</option><?php echo $jk?>
-                        </select></td>
-                </tr>
-            </table>
+     <fieldset>
+        <legend>Show Data Diri</legend>
+        <table>
+            <tr>
+                <th>Nama</th>
+                <td><input type="text" name="nama" value="<?php echo $nama; ?>"readonly></td>
+            </tr>
+            <tr>
+                <th>Alamat</th>
+                <td><textarea name="alamat" id="" cols="20" rows="10"  value="<?php echo $alamat; ?>"readonly></textarea></td>
+            </tr>
+            <tr>
+                <th>Tanggal Lahir</th>
+                <td><input type="date" name="tgl_lahir" value="<?php echo $tgl_lahir; ?>"readonly></td>
+            </tr>
+            <tr>
+            <th>Jenis Kelamin</th>
+              <td>
+              <?php
+              if($jk==Pria){ ?>
+                  <input type="radio" name="jk" value="Pria" checked/>Laki Laki
+                  <input type="radio" name="jk" value="Wanita" />Perempuan
+             <?php 
+              }elseif($jk == Wanita){?>
+                  <input type="radio" name="jk" value="Pria" checked/>Laki Laki
+                  <input type="radio" name="jk" value="Wanita"/>Perempuan
+               <?php }?>
+              </td>
+            </tr>
+               <tr>
+              <th>Agama</th>
+              <td>
+                    <select name="agama">
+                    <option value="islam">islam</option>
+                    <option value="kristen">kristen</option>
+                    <option value="hindu">hindu</option>
+                    <option value="budha">budha</option>
+                    </select>
+             </td>
+           </tr>
+        </table>
     </fieldset>
 </body>
 </html>

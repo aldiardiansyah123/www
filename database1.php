@@ -22,32 +22,33 @@ class Diri extends Database {
     public function index()
     {
         
-        $datadiri = mysqli_query($this->koneksi,"select * from selfbio");
-        // var_dump($datadiri);
-        return $datadiri;
+        $data1 = mysqli_query($this->koneksi,"select * from selfbio");
+        // var_dump($datadata1);
+        return $data1;
     }
     // Menambah Data
     public function create($nama, $alamat, $tgl_lahir, $jk, $agama, $umur)
     {
         
-        mysqli_query($this->koneksi,"insert into selfbio values('','$nama', '$alamat','$tgl_lahir','$jk','$agama','$umur')");
+        mysqli_query($this->koneksi,"insert into selfbio values('','$nama','$alamat', '$tgl_lahir', '$jk', '$agama', '$umur')");
     }
-    // Menampilkan Data Berdasarkan ID
+    // Menampilkan Data Berdasarkan id
     public function show($id)
     {
-        $datadiri = mysqli_query($this->koneksi,"select * from selfbio where id='$id'");
-        return $datadiri;
+        $data1 = mysqli_query($this->koneksi,"select * from selfbio where id='$id'");
+        return $data1;
     }
     // Menampilkan data berdasarkan id
     public function edit($id)
     {
-        $datadiri = mysqli_query($this->koneksi,"select * from selfbio where id='$id'");
-        return $datadiri;
+        $data1 = mysqli_query($this->koneksi,"select * from selfbio where id='$id'");
+        return $data1;
     }
     // mengupdate data berdasarkan id
-    public function update($id, $nama, $alamat, $tgl_lahir, $jk, $agama, $umur)
+    public function update($nama, $alamat, $tgl_lahir, $jk, $agama, $umur)
     {
-        mysqli_query($this->koneksi,"update selfbio set nama='$nama', alamat='$alamat', tanggal lahir='$tgl_lahir', jenis kelamin='$jk', agama='$agama', umur='$umur' where id='$id'");
+        mysqli_query($this->koneksi,"update selfbio set nama='$nama',alamat='$alamat', tanggal lahir='$tgl_lahir',
+        jenis kelamin='$jk', agama ='$agama', umur ='$umur'  where id='$id'");
     }
     // menghapus data berdasarkan id
     public function delete($id)
@@ -55,6 +56,6 @@ class Diri extends Database {
         mysqli_query($this->koneksi,"delete from selfbio where id='$id'");
     }
 }
-// koneksi DB
+// koneksi db
 $db = new Database();
 ?>

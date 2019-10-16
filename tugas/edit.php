@@ -24,46 +24,48 @@ $diri = new Diri();
         }
     ?>
     <fieldset>
-        <legend>Edit Biodata</legend>
+        <legend>Edit Data Siswa</legend>
         <form action="proses.php?aksi=update" method="post">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <table>
-                <tr>
-                    <th>Nama</th>
-                    <td><input type="text" name="nama" value="<?php echo $nama; ?>" required></td>
-                </tr>
-                <tr>
-                    <th>Alamat</th>
-                    <td><textarea name="alamat" cols="40" required><?php echo $alamat; ?></textarea></td>
-                </tr>
-                <tr>
-                    <th>Tanggal Lahir</th>
-                    <td><input type="date" name="tgl_lahir" value="<?php echo $tgl_lahir; ?>"required></td>
-                </tr>
-                <tr>
-                    <th>Jenis Kelamin</th>
-                    <?php
-                    if ($jk==pria) {?>
-                        <input type="radio" name="jk" value="pria">Laki-Laki
-                        <input type="radio" name="jk" value="wanita">Perempuan
-                    <?php
-                    }elseif ($jk==wanita) {?>
-                        <input type="radio" name="jk" value="pria">Laki-Laki
-                        <input type="radio" name="jk" value="wanita">Perempuan
-                    <?php } ?>
-                </tr>
-                <tr>
-                    <th>Agama</th>
-                    <td><select name="agama">  
-                        <option value="">Agama</option><?php echo $jk?>
-                        <option value="Islam">Islam</option><?php echo $jk?>
-                        <option value="Kristen">Kristen</option><?php echo $jk?>
-                        </select></td>
-                </tr>
-                <tr>
-                    <th><input type="submit" name="save" value="Simpan"></th>
-                </tr>
+               <tr>
+                <th>Nama</th>
+                <td><input type="text" name="nama" value="<?php echo $nama; ?>"></td>
+            </tr>
+            <tr>
+                <th>Alamat</th>
+                <td><textarea name="alamat" id="" cols="20" rows="10"  value="<?php echo $alamat; ?>"></textarea></td>
+            </tr>
+            <tr>
+                <th>Tanggal Lahir</th>
+                <td><input type="date" name="tgl_lahir" value="<?php echo $tgl_lahir; ?>"></td>
+            </tr>
+            <tr>
+            <th>Jenis Kelamin</th>
+               <?php
+              if($jk==Pria){ ?>
+                  <input type="radio" name="jk" value="Pria" checked/>Laki Laki
+                  <input type="radio" name="jk" value="Wanita" checked/>Perempuan
+             <?php 
+              }elseif($jk == Wanita){?>
+                  <input type="radio" name="jk" value="Pria" />Laki Laki
+                  <input type="radio" name="jk" value="Wanita"checked/>Perempuan
+               <?php }?>
+            </tr>
+               <tr>
+              <th>Agama</th>
+              <td>
+                    <select name="agama">
+                    <option value="islam">islam</option>
+                    <option value="kristen">kristen</option>
+                    <option value="hindu">hindu</option>
+                    <option value="budha">budha</option>
+                    </select>
+             </td>
+           </tr>
             </table>
+            <input type="submit" name="save" value="Simpan">
+          <input type="reset">
         </form>
     </fieldset>
 </body>
